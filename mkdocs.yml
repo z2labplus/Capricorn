@@ -1,57 +1,49 @@
-site_name: 又拍云文档中心
-site_url: https://docs.upyun.com/
-repo_url: https://github.com/upyun/docs/
-docs_dir: sources
+site_name: 文档中心
+site_url: https://xiezg247.xyz/
+repo_url: https://github.com/xiezg247/Capricorn/
+docs_dir: docs
 theme_dir: theme/updocs
-copyright: Copyright &copy; 2017, 又拍云
+copyright: Copyright &copy; 2018, xiezg247
 
 pages:
 
 - '文档首页': 'index.md'
-- '开发指南':
-    - '开发者指南': 'guide/index.md'
-    - 'REST API 简易指南(PHP)': 'guide/php_rest_guide.md'
-- 'CDN 文档':
-    - '产品简介': 'cdn/index.md'
-    - '快速入门': 'cdn/guide.md'
-    - '基础设置': 'cdn/basic.md'
-    - '高级设置': 'cdn/advanced.md'
-    - '证书服务': 'cdn/ssl.md'
-    - '辅助工具': 'cdn/tools.md'
-    - '常见问题': 'cdn/faq.md'
-- '直播文档':
-    - '产品简介': 'live/Introduction.md'
-    - '快速入门': 'live/guide.md'
-    - '基础配置': 'live/primary.md'
-    - '增值服务': 'live/advanced.md'
-    - '移动端 sdk': 'live/mobile-sdk.md'
-- '云存储文档':
-    - '产品简介': 'api/index.md'
-    - '快速入门': 'api/quick_start.md'
-    - '开发者指南': 'api/developer_guide.md'
-    - '认证鉴权': 'api/authorization.md'
-    - 'REST API': 'api/rest_api.md'
-    - 'FORM API': 'api/form_api.md'
-    - '开发者工具': 'api/developer_tools.md'
-    - 'SDK 使用文档': 'api/sdk.md'
-    - '融合云存储': 'api/fusion_storage.md'
-    - '分块上传（旧）': 'api/multipart_upload.md'
-    - 'API 错误码表': 'api/errno.md'
-    - '缓存刷新': 'api/purge.md'
-    - '微信小程序': 'api/small_program.md'
-    - '移动流量': 'mobile-stats/index.md'
-- '云处理文档':
-    - '产品简介': 'cloud/index.md'
-    - '认证鉴权': 'cloud/authorization.md'
-    - '图片处理': 'cloud/image.md'
-    - '音视频处理': 'cloud/av.md'
-    - '内容审核': 'cloud/audit.md'
-    - '人脸识别': 'cloud/face_detect.md'
-    - '压缩解压缩': 'cloud/unzip.md'
-    - '文件拉取': 'cloud/spider.md'
-    - '音视频处理（旧）': 'cloud/av_pretreatment.md'
-- '资源下载':
-    - '资源下载': 'download/index.md'
+- 'Flask源码剖析':
+    - '简介': 'flask/index.md'
+    - '总览': 'flask/Flask源码剖析-一-总览.md'
+    - '简单应用': 'flask/Flask源码剖析-二-简单应用.md'
+    - '路由': 'flask/Flask源码剖析-三-路由.md'
+    - '上下文': 'flask/Flask源码剖析-四-上下文.md'
+    - '请求': 'flask/Flask源码剖析-五-请求.md'
+    - '响应': 'flask/Flask源码剖析-六-响应.md'
+    - 'session': 'flask/Flask源码剖析-七-session.md'
+    - '信号': 'flask/Flask源码剖析-八-信号.md'
+    - 'json解析': 'flask/Flask源码剖析-九-json解析.md'
+    - '视图': 'flask/Flask源码剖析-十-视图.md'
+    - '模板': 'flask/Flask源码剖析-十一-模板.md'
+    - '配置': 'flask/Flask源码剖析-十二-配置.md'
+    - '扩展': 'flask/Flask源码剖析-十三-扩展.md'
+    - '测试': 'flask/Flask源码剖析-十四-测试.md'
+    - '命令行接口': 'flask/Flask源码剖析-十五-命令行接口.md'
+    - '辅助': 'flask/Flask源码剖析-十六-辅助.md'
+    - '日志': 'flask/Flask源码剖析-十七-日志.md'
+    - 'Debug辅助': 'flask/Flask源码剖析-十八-Debug辅助.md'
+    - '兼容': 'flask/Flask源码剖析-十九-兼容.md'
+    - '总结': 'flask/Flask源码剖析-二十-总结.md'
+- '自动化部署':
+    - '简介': 'ci/index.md'
+    - '自动化部署': 'ci/自动化部署.md'
+- '敏捷开发':
+    - '简介': 'agile/index.md'
+    - '敏捷开发模式下的项目复盘': 'agile/敏捷开发模式下的项目复盘.md'
+- '推荐系统':
+    - '简介': 'recommend/index.md'
+- '机器学习':
+    - '简介': 'machine_learning/index.md'
+- 'Golang':
+    - '简介': 'go/index.md'
+- 'Python':
+    - '简介': 'python/index.md'
 - '常见问题':
     - '常见问题': 'faq/index.md'
 
