@@ -38,6 +38,7 @@ pages:
     - '敏捷开发模式下的项目复盘': 'agile/敏捷开发模式下的项目复盘.md'
 - '推荐系统':
     - '简介': 'recommend/index.md'
+    - '推荐系统': 'recommend/推荐系统.md'
 - '机器学习':
     - '简介': 'machine_learning/index.md'
 - 'Golang':
