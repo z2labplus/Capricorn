@@ -45,6 +45,9 @@ pages:
     - '简介': 'go/index.md'
 - 'Python':
     - '简介': 'python/index.md'
+- '其他':
+    - '简介': 'others/index.md'
+    - 'Git使用规范': 'others/Git使用规范.md'
 - '常见问题':
     - '常见问题': 'faq/index.md'
 
