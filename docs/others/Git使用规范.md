@@ -19,6 +19,7 @@ Ruby on Rails作者汉森说，灵活性被过分高估——约束才是解放�
 [参考](http://www.codeceo.com/article/git-standard.html)
 [参考](http://developer.51cto.com/art/201512/502921.htm)
 [参考](https://www.jianshu.com/p/08eef2108647)
+[参考](https://zhuanlan.zhihu.com/p/23478654)
 ### 提交
 ### 推送
 ### 拉取
