@@ -63,27 +63,17 @@ Present-tense summary under 50 characters
 http://taiga.bu6.io/project/p_c-appxiang-guan-ye-wu/us/274
 ```
 
-### 推送
+### 推送/拉取
+- 分支在开发的过程中，需要经常和master分支保持一致
+- 分支开发完成后，在合并到master分支前，可以先将多个commit合并
 
-### 拉取
 ### 合并
+- 在分支的代码合并到master分支时，如果master分支是分支的父分支，考虑用git rebase，不使用git merge
+- 在与多人合作时，合并前必须进行code review
 
-## 开发流程
 ## 其他补充
 [25 Tips for Intermediate Git Users](https://www.andyjeffries.co.uk/25-tips-for-intermediate-git-users/)
 ## 参考
 - [Git分支管理策略](http://www.ruanyifeng.com/blog/2012/07/git.html)
 - [团队中的 Git 实践](https://ourai.ws/posts/working-with-git-in-team/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
-
-[参考](http://www.codeceo.com/article/git-standard.html)
-[参考](http://developer.51cto.com/art/201512/502921.htm)
-[参考](https://www.jianshu.com/p/08eef2108647)
-[参考](https://zhuanlan.zhihu.com/p/23478654)
-[参考](https://gist.github.com/belm/6989341)
-[参考](https://ourai.ws/posts/working-with-git-in-team/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
-[参考](https://semver.org/lang/zh-CN/)
-[参考](https://mp.weixin.qq.com/s?__biz=MzAwNDYwNzU2MQ==&mid=401622986&idx=1&sn=470717939914b956ac372667ed23863c&scene=2&srcid=0114ZcTNyAMH8CLwTKlj6CTN&from=timeline&isappinstalled=0#wechat_redirect)
-[参考](http://www.codeceo.com/article/git-standard.html)
-[参考](https://www.jianshu.com/p/3c68937586c8?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
-[参考](http://developer.51cto.com/art/201512/502921.htm)
 
