@@ -1,4 +1,4 @@
-site_name: 文档中心
+site_name: 无涯海
 site_url: https://xiezg247.xyz/
 repo_url: https://github.com/xiezg247/Capricorn/
 docs_dir: docs
@@ -9,47 +9,27 @@ pages:
 
 - '文档首页': 'index.md'
 - 'Flask源码剖析':
-    - '简介': 'flask/index.md'
-    - '总览': 'flask/Flask源码剖析-一-总览.md'
-    - '简单应用': 'flask/Flask源码剖析-二-简单应用.md'
-    - '路由': 'flask/Flask源码剖析-三-路由.md'
-    - '上下文': 'flask/Flask源码剖析-四-上下文.md'
-    - '请求': 'flask/Flask源码剖析-五-请求.md'
-    - '响应': 'flask/Flask源码剖析-六-响应.md'
-    - 'session': 'flask/Flask源码剖析-七-session.md'
-    - '信号': 'flask/Flask源码剖析-八-信号.md'
-    - 'json解析': 'flask/Flask源码剖析-九-json解析.md'
-    - '视图': 'flask/Flask源码剖析-十-视图.md'
-    - '模板': 'flask/Flask源码剖析-十一-模板.md'
-    - '配置': 'flask/Flask源码剖析-十二-配置.md'
-    - '扩展': 'flask/Flask源码剖析-十三-扩展.md'
-    - '测试': 'flask/Flask源码剖析-十四-测试.md'
-    - '命令行接口': 'flask/Flask源码剖析-十五-命令行接口.md'
-    - '辅助': 'flask/Flask源码剖析-十六-辅助.md'
-    - '日志': 'flask/Flask源码剖析-十七-日志.md'
-    - 'Debug辅助': 'flask/Flask源码剖析-十八-Debug辅助.md'
-    - '兼容': 'flask/Flask源码剖析-十九-兼容.md'
-    - '总结': 'flask/Flask源码剖析-二十-总结.md'
-- '自动化部署':
-    - '简介': 'ci/index.md'
-    - '自动化部署': 'ci/持续集成部署.md'
-- '敏捷开发':
-    - '简介': 'agile/index.md'
-    - '敏捷开发模式下的项目复盘': 'agile/敏捷开发模式下的项目复盘.md'
-- '推荐系统':
-    - '简介': 'recommend/index.md'
-    - '推荐系统': 'recommend/推荐系统.md'
-- '机器学习':
-    - '简介': 'machine_learning/index.md'
-- 'Golang':
-    - '简介': 'go/index.md'
-- 'Python':
-    - '简介': 'python/index.md'
-- '其他':
-    - '简介': 'others/index.md'
-    - 'Git使用规范': 'others/Git使用规范.md'
-- '常见问题':
-    - '常见问题': 'faq/index.md'
+    - '简介': '笔记/专业技能/开发框架/FLASK/源码剖析/index.md'
+    - '总览': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(1)总览.md'
+    - '简单应用': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(2)简单应用.md'
+    - '路由': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(3)路由.md'
+    - '上下文': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(4)上下文.md'
+    - '请求': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(5)请求.md'
+    - '响应': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(6)响应.md'
+    - 'session': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(7)session.md'
+    - '信号': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(8)信号.md'
+    - 'json解析': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(9)json解析.md'
+    - '视图': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(10)视图.md'
+    - '模板': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(11)模板.md'
+    - '配置': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(12)配置.md'
+    - '扩展': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(13)扩展.md'
+    - '测试': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(14)测试.md'
+    - '命令行接口': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(15)命令行接口.md'
+    - '辅助': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(16)辅助.md'
+    - '日志': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(17)日志.md'
+    - 'Debug辅助': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(18)Debug辅助.md'
+    - '兼容': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(19)兼容.md'
+    - '总结': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(20)总结.md'
 
 # Add permalink for sharing
 markdown_extensions:
