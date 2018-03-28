@@ -30,6 +30,8 @@ pages:
     - 'Debug辅助': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(18)Debug辅助.md'
     - '兼容': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(19)兼容.md'
     - '总结': '笔记/专业技能/开发框架/FLASK/源码剖析/Flask源码剖析(20)总结.md'
+- '工作流程':
+    - '敏捷开发模式': '笔记/工作流程/工作方法/敏捷开发模式下的项目复盘.md'
 
 # Add permalink for sharing
 markdown_extensions:
