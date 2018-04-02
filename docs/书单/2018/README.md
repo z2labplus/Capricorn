@@ -5,6 +5,7 @@
 ##### Python
 - Python源码剖析
 - Python高手之路
+- Python高级编程
 - Python极客项目编程
 - Python3 Cookbook
 - 深入 Python 3
