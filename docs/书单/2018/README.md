@@ -3,26 +3,22 @@
 ### 专业参考
 #### 语言
 ##### Python
+- Python源码剖析
+- Python高手之路
+- Python极客项目编程
+- Python3 Cookbook
+- 深入 Python 3
+
 ##### GoLang
+- Go语言实战
+- Go语言实战笔记
+- Go语言标准库
+- Go命令教程
+- Go实战开发
+- Go语言博客实践
 
-#### 协议
+#### 通信协议
 - HTTP权威指南
-
-###### 1. 进程/应用层
-- Telnet协议
-- FTP协议
-- SMTP协议
-- DNS协议
-- HTTP协议
-- RPC协议
-###### 2. 主机-主机层
-- TCP协议
-- UDP协议
-
-###### 3. Internet层
-- IP协议
-- ICMP协议
-- ARP协议
 
 #### 存储
 - MySQL核心技术手册
@@ -82,6 +78,14 @@
 
 #### 分布式系统
 - 走向分布式
+- 大数据日知录
+- 大型网站技术架构
+- ZooKeeper:分布式过程协同技术详解
+- 构建高性能Web站点
+- 分布式服务框架：原理与实践
+- 大规模分布式存储系统
+- 分布式系统
+- 分布式系统概念与设计
 
 #### 监控管理
 - Elasticsearch 权威指南（中文版）
@@ -127,6 +131,7 @@
 - Managing Gigabytes
 - Modern Information Retrieval
 - 推荐系统实践
+- 机器学习 周志华
 
 #### 进阶
 - Pattern Classification
@@ -140,6 +145,7 @@
 
 #### 实战
 - 机器学习实战
+- 机器学习web应用
 
 #### 项目管理
 - 极客与团队
