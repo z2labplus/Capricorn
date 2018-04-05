@@ -6,11 +6,13 @@
 - Python源码剖析
 - Python高级编程
 - Python极客项目编程
+- Python3 Cookbook
 
 ##### GoLang
 - Go语言实战
-- Go语言博客实践
-- Go语言标准库
+- [Go语言博客实践](https://github.com/achun/Go-Blog-In-Action)
+- [Go语言标准库](https://studygolang.com/pkgdoc)
+- [深入解析Go](https://tiancaiamao.gitbooks.io/go-internals/content/zh/index.html)
 
 #### 通信协议
 - HTTP权威指南
@@ -25,20 +27,18 @@
 - Redis 命令参考
 - Redis实战
 - Redis 设计与实现
-- 带有详细注释的 Redis 3.0 代码
+- [如何阅读Redis源码](https://github.com/huangz1990/blog/blob/master/diary%2F2014%2Fhow-to-read-redis-source-code.rst)
+- [带有详细注释的 Redis 3.0 代码](https://github.com/huangz1990/redis-3.0-annotated)
 
 #### 安全加密
-- 密码学工程
-- 纠结的网络
-- 网络安全监控实践
-- 暴力的Python
+- 图解密码技术
+- 黑帽子Python
 
 #### 架构
 - 企业应用架构模式
 - 设计原本
 - 架构之美
 - 淘宝技术这十年
-- 系统架构：复杂系统的产品设计与开发
 
 #### 算法
 - 算法概论
@@ -51,24 +51,23 @@
 #### Web服务
 - Nginx开发从入门到精通 (淘宝团队出品)
 - Nginx教程从入门到精通 (PDF版本，运维生存时间出品)
-- OpenResty 最佳实践
+- [OpenResty 最佳实践](https://www.gitbook.com/book/moonbingbing/openresty-best-practices/details)
 
 #### 分布式系统
-- 走向分布式
 - 大型网站技术架构
 - ZooKeeper:分布式过程协同技术详解
 - 分布式服务框架：原理与实践
 - 分布式系统概念与设计
 
 #### 监控管理
-- Elasticsearch 权威指南（中文版）
-- ELKstack 中文指南
-- Logstash 最佳实践
+- [Elasticsearch 权威指南（中文版）](https://es.xiaoleilu.com/)
+- [ELKstack 中文指南](https://legacy.gitbook.com/book/chenryn/elk-stack-guide-cn/details)
+- [Logstash 最佳实践](http://doc.yonyoucloud.com/doc/logstash-best-practice-cn/index.html)
+- [用 Fluentd 和 Datadog 监视 Docker 的最佳实践 - John Hammink](https://blog.lab99.org/post/docker-2016-07-08-video-best-practices-for-docker-monitoring-with-fluentd-and-datadog.html)
 
 #### 编程思想
 - 编程精粹
 - 程序设计实践
-- 201 principles of software development
 
 #### 机器学习
 ##### 数学基础
@@ -90,9 +89,10 @@
 ##### 实战
 - 推荐系统实践
 - 机器学习实战
-- 机器学习web应用
+- 机器学习 Web应用
 
 ##### 补充
+- 机器学习导论
 - 数学之美
 - 集体智慧编程
 - 智能web算法
@@ -105,10 +105,9 @@
 - 重新定义团队：谷歌如何工作
 - 重新定义公司：谷歌是如何运营的
 
-#### 职业素养
+#### 职业发展
 - 软件开发者路线图
 - 高效程序员的45个习惯
-- 编程大师智慧
 
 ### 健身训练
 - 运动生理学
@@ -122,8 +121,9 @@
 - 运动营养学
 
 ### 音乐进阶
-- 音乐理论基础
-- 基本乐理教程
+- 音乐理论基础 李重光
+- 基本乐理教程 李重光
+- 自学乐理辅导教程
 
 - 流行音乐与爵士乐和声美学第二版
 - 弹指之间 指弹教材
@@ -132,41 +132,26 @@
 - 素描基础教程
 
 ### 文学素养
-
-- 新名字的故事
-- 不可思议的朋友
 - 杀死一只知更鸟
 - 现代艺术150年
 - 给仰望和被遗忘的
-
-- 未来简史
-- 世界的凛冬
-- 我的天才女友 
-- 我的职业是小说家
 - 恋情的终结
+- 世界的凛冬
+- 村上春树精选杂文合集
 
-- 海洋与文明
+### 历史文化
+- 未来简史
 - 大国的崩溃
+- 天朝的崩溃
 - 活着回来的男人
 - 我在故宫修文物
-- 中国1945
+- 私人生活的变革
 
-- 幸福课
-- 知觉之门
-- 群居的艺术
-
-- 当喵星人有了门牌号
-- 日本料理神髓
-- 音乐即自由
-
+### 商业经营
 - 经济学通识课
-- 财富自由之路
 - 跃迁
 - 深度工作
-
-- 指匠
-- 独居的一年
-- 私人生活的变革
+- 通往财务自由之路
 
 ### 哲学思考
 - 西方哲学史
