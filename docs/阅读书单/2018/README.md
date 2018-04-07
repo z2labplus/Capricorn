@@ -8,6 +8,7 @@
 - Python极客项目编程
 - Python3 Cookbook
 - [Python3.5.2 官方文档](https://yiyibooks.cn/xx/python_352/tutorial/index.html)
+- [Python 魔术方法指南](http://pycoders-weekly-chinese.readthedocs.io/en/latest/issue6/a-guide-to-pythons-magic-methods.html)
 
 ##### GoLang
 - Go语言实战
