@@ -103,6 +103,12 @@ PyObject定义如下：
 
 区别在于定长对象的不同对象占用的内存大小是一样的，变长对象的不同对象占用的内存大小是不一样的。
 
+##### 6. 可变对象和不可变对象
+
+可变对象是一旦创建后还可改变，但是地址不会发生改变，即该变量指向原来的对象。（例如int，string，float，tuple）
+
+不可变对象是一旦创建后不可改变，如果更改，则变量会指向一个新的对象。（例如list，dict）
+
 #### 类型对象
 
 ##### 1. 对象的元信息
@@ -168,11 +174,62 @@ Python通过对一个对象的引用计数的管理来维护对象在内存中�
 
 #### 初识PyIntObject对象
 
+##### 1. PyIntObject对象的定义 
+
+![](./images/PyIntObject定义.png)
+
+- Python中的整数对象`PyIntObject`实际上是C中原生类型long的一个简单包装。
+- Python中的对象的相关元信息实际上都是保存在对应的类型对象中的，对于`PyIntObject`，类型对象是`PyInt_Type`。
+
 #### PyIntObjecy对象的创建和维护
+
+##### 1. 对象创建的三种途径
+
+- 从long值生成`PyIntObject`对象
+- 从字符串生成`PyIntObject`对象
+- 从Py_UNICODE对象生成`PyIntObject`对象
+
+##### 2. 小整数对象
+
+在Python对象中，所有的对象都是生活在堆上，如果没有特殊的机制的话，那么Python将一次又一次使用malloc在堆上申请空间和释放空间，基于此种情况，对于小整数引入了对象池技术。
+
+在Python2.5中，将小整数集合的范围默认设定为[-5, 257]，可修改NSMALLNEGINTS和NSMALLPOSINTS的值，重新编译Python，从而将这个范围向两端伸展或收缩。
+
+##### 3. 大整数对象
+
+对于小整数，在小整数对象池中完全地缓存了其`PyIntObject`对象，而对其他整数，Python运行环境将提供一块内存空间，这些内存空间将由大整数轮流使用。
+
+在Python中，有一个`PyIntBlock`结构，在这个结构的基础上，实现了一个单向列表。
+
+##### 4. 添加和删除
+
+`PyIntObject`对象的创建通过两部完成：
+
+- 如果小整数对象池被激活，则尝试小整数对象池
+- 如果不能使用小整数对象池，则使用通用的整数对象池
 
 
 
 ### 四. Python中的字符串对象
+
+#### PyStringObject和PyString_Type
+
+##### 1. PyStringObject对象的定义 
+
+![](./images/PyStringObject对象的定义.png)
+
+- 对于`PyStringObject`，类型对象是`PyString_Type`。
+- ​
+
+#### 创建PyStringObject对象
+
+#### 字符串对象的intern机制
+
+#### 字符串缓冲池
+
+#### PyStringObject效率相关问题
+
+
 
 ### 五. Python中的List对象
 
