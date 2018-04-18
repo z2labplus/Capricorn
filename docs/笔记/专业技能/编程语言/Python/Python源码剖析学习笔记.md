@@ -402,24 +402,46 @@ Python为`PyDictObject`对象提供了两种搜索策略，`lookdict`和`lookdic
 
 和`PyListObject`对象一样，缓冲池中只保留了`PyDictObject`对象。如果`PyDictObject`对象中`ma_table`维护的是从系统堆申请的内存空间，那么Python将释放这块内存空间，归还给系统；如果被销毁的`PyDictObject`对象中的table实际上并没有从系统申请，而是指向`PyDictObject`固有的`ma_smalltable`，那么只需要调整`ma_smalltable`中的对象引用计数即可。
 
-### 七. 最简单的Python模拟
+### 七. Python的编译结果：code对象与pyc文件
 
-### 八. Python的编译结果：code对象与pyc文件
+#### Python程序的执行过程
 
-### 九. Python的虚拟机框架
+Python解释器在执行任何一个Python程序文件时，首先进行的动作都是对文件中的Python源代码进行编译，编译的主要结果是产生一组Python的byte code（字节码），然后将编译的结果交给Python的虚拟机，由虚拟机按照顺序一条一条地执行字节码，从而完成对Python程序的执行动作。
 
-### 十. Python虚拟机中的一般表达式
+![](./images/Python程序的执行动作.png)
 
-### 十一. Python虚拟机中的控制流
+#### Python编译器的编译结果——PyCodeObject对象
 
-### 十二. Python虚拟机中的函数机制
+##### 1. PyCodeObject对象与pyc文件
 
-### 十三. Python虚拟机中的类机制
+##### 2. Python源码中的PyCodeObject
 
-### 十四. Python运行环境初始化
+##### 3. pyc文件
 
-### 十五. Python模块的动态加载机制
+#### Pyc文件的生成
 
-### 十六. Python多线程机制
+##### 1. pyc文件的生成
 
-### 十七. Python的内存管理机制
+##### 2. 向pyc文件写入字符串
+
+#### Python的字节码
+
+
+
+### 八. Python的虚拟机框架
+
+### 九. Python虚拟机中的一般表达式
+
+### 十. Python虚拟机中的控制流
+
+### 十一. Python虚拟机中的函数机制
+
+### 十二. Python虚拟机中的类机制
+
+### 十三. Python运行环境初始化
+
+### 十四. Python模块的动态加载机制
+
+### 十五. Python多线程机制
+
+### 十六. Python的内存管理机制
