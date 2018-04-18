@@ -414,19 +414,29 @@ Python解释器在执行任何一个Python程序文件时，首先进行的动�
 
 ##### 1. PyCodeObject对象与pyc文件
 
+在程序运行期间，编译结果存在与内存的`PyCodeObject`对象中，而Python结束运行后，编译结果又被保存到pyc文件中。当下一次运行程序时，Python会根据pyc文件中记录的编译结果直接建立内存中的`PyCodeObject`对象，而不用再次对源文件进行翻译了。
+
+对于Python编译器来说，`PyCodeObject`对象才是真正的编译结果，而pyc文件只是对这个文件在硬盘上的表现形式，它们实际上是Python对源文件编译的结果的两种不同存在方式。
+
 ##### 2. Python源码中的PyCodeObject
 
-##### 3. pyc文件
+Python编译器在对Python源代码进行编译时，对于代码中的一个Code Block会创建一个`PyCodeObject`对象与这段代码对应。
+
+Python有一个简单而清晰的规则：当进入一个新的名字空间时，或者说作用域时，就算进入咯一个新的Code Block。
+
+在Python中，类/函数/module都对应着一个独立的名字空间。
 
 #### Pyc文件的生成
 
 ##### 1. pyc文件的生成
 
-##### 2. 向pyc文件写入字符串
+Python在通过`import`对`module`进行动态加载时，如果没有找到相对应的pyc文件或者dll文件，就会在py文件的基础上自动创建pyc文件。
 
 #### Python的字节码
 
+Python源代码在执行前会被编译为Python的字节码指令序列，Python虚拟机根据这些字节码来进行一系列的操作，从而完成对Python程序的执行。
 
+在Python2.5中，一共定义了104条字节码指令。
 
 ### 八. Python的虚拟机框架
 
