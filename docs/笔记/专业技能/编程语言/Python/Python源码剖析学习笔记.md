@@ -105,9 +105,9 @@ PyObject定义如下：
 
 ##### 6. 可变对象和不可变对象
 
-可变对象是一旦创建后还可改变，但是地址不会发生改变，即该变量指向原来的对象。（例如int，string，float，tuple）
+可变对象是一旦创建后内容还可改变，但是地址不会发生改变，即该变量指向原来的对象。（例如list，dict）
 
-不可变对象是一旦创建后不可改变，如果更改，则变量会指向一个新的对象。（例如list，dict）
+不可变对象是一旦创建后内容不可改变，如果更改，则变量会指向一个新的对象。（例如int，string，float，tuple）
 
 #### 类型对象
 
@@ -172,7 +172,7 @@ Python通过对一个对象的引用计数的管理来维护对象在内存中�
 
 ### 三. Python中的整数对象
 
-#### 初识PyIntObject对象
+#### PyIntObject对象
 
 ##### 1. PyIntObject对象的定义 
 
@@ -212,28 +212,195 @@ Python通过对一个对象的引用计数的管理来维护对象在内存中�
 
 ### 四. Python中的字符串对象
 
-#### PyStringObject和PyString_Type
+#### PyStringObject对象
 
 ##### 1. PyStringObject对象的定义 
 
 ![](./images/PyStringObject对象的定义.png)
 
 - 对于`PyStringObject`，类型对象是`PyString_Type`。
-- ​
-
-#### 创建PyStringObject对象
+- `ob_size`变量保存着对象中维护的可变长度内存的大小，`ob_sval`指向一段长度为ob_size+1个字节的内存。
+- `ob_hash`变量是缓存对象的hash值。
+- `ob_sstate`变量标记了该对象是否已经过intern机制的处理。
 
 #### 字符串对象的intern机制
 
+`PyStringObject`对象的intern机制的目的是：对于被intern之后的字符串，比如说“Python”，在整个Python的运行期间，系统中只有唯一的一个与字符串“Python”对应的`PyStringObject`对象。
+
+intern机制的核心是在系统中有一个（key，value）映射关系的集合，集合的名称叫做interned。在这个集合中，记录着被intern机制处理过的`PyStringObject`对象。
+
 #### 字符串缓冲池
 
+在Python的整数对象体系中，小整数的缓冲池是在Python初始化时被创建的，而字符串对象体系中的字符串缓冲池则是以静态变量的形式存在着的。
+
+在创建`PyStringObject`时，会首先检查所要创建的是否是一个字符对象，然后检查字符串缓冲池中是否已经有了这个字符的字符对象的缓冲，如果有，则直接返回这个缓冲对象即可。
+
 #### PyStringObject效率相关问题
+
+Python中一个举足轻重的问题——字符串拼接。
+
+Python提供了“+”操作符来进行字符串拼接的功能，其效率十分低下，其根源在于Python中的`PyStringObject`对象是一个不可变对象，这就意味着当进行进行字符串拼接时，实际上要创建一个`PyStringObject`对象，如果需要连接N个`PyStringObject`对象，那么必须进行N-1次的内存申请搬运工作。
+
+官方推荐的做法是通过`PyStringObject`对象的join操作来对存储在list或者tuple中的一组`PyStringObject`对象进行连接操作，这种做法只需要分配一次内存，大大提供执行效率。
+
+执行join操作时，会先统计出list中一共有多少个`PyStringObject`对象，并统计这些`PyStringObject`对象所维护的字符串一共有多长，然后申请内存，将list中`PyStringObject`对象维护的字符串都拷贝到新开辟的内存空间中。
 
 
 
 ### 五. Python中的List对象
 
+#### PyListObject对象
+
+##### 1. PyListObject对象的定义 
+
+![](./images/PyListObject对象的定义1.png)
+
+![](./images/PyLIstObject对象的定义2.png)
+
+- 对于`PyListObject`，类型对象是`PyList_Type`。
+- `**ob_item`这个指针指向元素列表所在的内存块的首地址。
+- `allocated`则维护了当前列表中的可容纳的元素的总数。
+
+#### PyListObject对象的创建和维护
+
+##### 1. 创建对象
+
+Python提供了一个`PyList_New`函数来创建列表，这个函数接受一个size参数，从而允许可以在创建一个`PyListObject`对象的同时指定该列表初始的元素个数。
+
+##### 2. 设置元素
+
+假设创建一个包含6个元素的`PyListObject`对象，也就是通过`PyList_New`函数创建`PyListObject`对象，当完成之后，`PyListObject`对象的情形应该如下：
+
+![](./images/PyListObject设置.png)
+
+当把一个整数对象100放置到第四个位置时，Python会进行类型检查，再进行索引检查，随后将待加入的PyObject *指针放到指定位置，调整引用计数，将这个位置原来存放的对象的引用计数减1。
+
+##### 3. 插入元素
+
+设置元素不会使得`ob_item`指向的内存发生变化，插入元素有可能使得`ob_item`指向的内存发生变化。
+
+在调整`PyListObject`对象所维护的列表的内存时，Python分两种情况处理：
+
+- newsize \< allocated && new size > allocated/2 简单调整`ob_item`值
+- 其他情况，调用realloc，重新分配空间
+
+##### 4. 删除元素
+
+当Python执行list.remove(3)时，`PyListObject`对象中的`listremove`操作将会被激活，对整个列表进行遍历，将待删除的元素与`PyListObject`对象中的每个元素一一比较，如果匹配，则删除该元素。
+
+####PyListObject对象缓冲池
+
+在创建一个新的list时，创建过程分为两步，首先创建`PyListObject`对象，然后创建`PyListObject`对象所维护的元素列表。
+
+与之对应的，在销毁一个list时，先销毁`PyListObject`对象所维护的元素列表，然后释放`PyListObject`对象自身。
+
+在删除`PyListObject`对象自身时，Python会检查`PyListObject`对象缓冲池，查看其中缓存的`PyListObject`的数量是否已经满了，如果没有，就将该待删除的`PyListObject`对象放到缓冲池中，以备后用。
+
+在Python下一次创建新的list时，这个`PyListObject`对象将重新被唤醒，重新分配`PyObject *`元素列表占用的内存，重新分配新的对象。
+
+
+
 ### 六. Python中的Dict对象
+
+#### 关联容器
+
+为了刻画某种对应关系，现代的编程语言通常都在语言级或者标准库中提供某种关联式的容器。关联式的容器中存储着一对对符合该容器所代表的关联规则的元素对，通常是以键值对的形式存在。
+
+关联容器的设计总会极大的关注健的搜索效率，例如C++的STL中的map的实现是基于RB-tree（红黑树），理论上，其搜索的时间复杂度为O($\log_2$N)。
+
+Python同样提供了关联式容器，即`PyDictObject`对象，采用了散列表（hash table），理论上，在最优的情况下，其搜索的时间复杂度为O(1)。
+
+#### 散列表概述
+
+散列表的基本思想，是通过一定的函数将需搜索的键值映射为一个整数，将这个整数视为索引值去访问某片连续的内存区域。
+
+用于映射的函数称为散列函数，而映射后的值称为元素的散列值。在散列表的视线中，所选择的散列函数的优劣将直接决定所实现的散列表的搜索效率高低。
+
+散列表在使用过程中，不同的对象经过散列函数的作用，可能被映射为相同的散列值，而且随着存储数据的增加，这样的冲突就会发生的越来越频繁，散列冲突是散列表与生俱来的问题。为了解决这种问题，Python采用的是开放定址法。
+
+#### PyDictObject对象
+
+##### 1. 关联容器的entry
+
+我们将关联容器中的一个（健，值）元素对称为一个`entry`或者`slot`，在Python中，一个`entry`的定义如下：
+![](./images/PyDictObject对象的entry实现.png)
+
+- 在`PyDictObject`中存放的是`PyObject *`，这也是Python的dict什么都能装得下的缘故，在Python中，无论什么东西都是`PyObject`对象。
+- 在`PyDictEntry`中，`me_hash`域存储的是`me_key`的散列值，利用一个域来记录这个散列值，可以避免每次查询的时候都要重新计算一遍散列值
+- 在一个`PyDictObject`对象生存变化的过程中，其中的`entry`会在3种状态之间切换：Unused/Active/Dummy。
+  - 当一个`entry`的`me_hash`域存储的是`me_key`都是NULL时，处于Unused态。
+  - 当`entry`中存储了一个（key， value）对时，切换为Active态，`me_hash`域存储的是`me_key`都不为NULL。
+  - 当`entry`中存储的（key， value）对被删除后，状态不能直接从Active态转为Unused态，此时，`entry`进入Dummy态，说明该`entry`是无效的，但其后的`entry`可能是有效的，是应该被搜索的。
+
+##### 2. PyDictObject对象的定义 
+
+在Python中，关联容器是通过`PyDictObject`对象来实现的，而一个`PyDictObject`对象实际上是一大堆`entry`的集合，总控这些集合的结构如下：
+
+![](./images/PyDictObject对象的定义.png)
+
+- 在`PyDictObject`对象定义的最后，有一个`ma_smalltable`的`PyDictEntry`数组，这个数组意味着当创建一个`PyDictObject`对象时，至少有`PyDcit_MINSIZE`个`entry`被创建，这个`PyDcit_MINSIZE`值默认为8，可以改变此值来调节Python的运行效率。
+- 当一个`PyDictObject`对象中的`entry`数量小于8个，认为此对象是一个小dict，当`entry`数量大于8个，认为此对象是一个大dict，将会申请额外的内存空间。
+
+![](./images/PyDictObject对象的大小.png)
+
+#### PyDictObject对象的创建和维护
+
+##### 1. PyDictObject对象的创建
+
+Python提供了一个`PyDict_New`函数来创建一个新的dict对象。
+
+##### 2. PyDictObject对象的元素搜索
+
+Python为`PyDictObject`对象提供了两种搜索策略，`lookdict`和`lookdict_string`，实际上，这两种策略使用的是相同的算法，`lookdict_string`只是`lookdict`针对`PyStringObject`对象的特殊形式。
+
+以`PyStringObject`对象作为`PyDictObject`对象中`entry`的键在Python中广泛应用，因此，`lookdict_string`也就成为了`PyDictObject`对象创建时所默认的搜索策略。
+
+`lookdict`进行第一次检查时所进行的主要动作如下：
+
+- 根据hash值获得`entry`的索引，表明冲突探测链上的第一个`entry`的索引
+- 在两种情况下，搜索结束：
+  - `entry`处于Unused状态，表明冲突探测链搜索完成，搜索失败
+  - ep->me_key == key，表明`entry`的key与待搜索的key匹配，搜索成功
+- 若当前`entry`处于Dummy状态，设置`freeslot`
+- 检查Active态`entry`中的key与待查找的key是否“值相同”，若成立，搜索成功
+
+如果冲突探测链上的第一个`entry`的key与待搜索的key不匹配，那么很自然的，`lookdict`会沿着探测链，依次比较探测链上的`entry`与待查找的key，主要动作如下：
+
+- 根据Python所采用的探测函数，获得探测链上的下一个带检查的`entry`
+- 检查到一个Unused态`entry`，则表示搜索失败，有两种结果：
+  - 如果`freeslot`不为空，则返回`freeslot`所指向`entry`
+  - 如果`freeslot`为空，则返回该Unused态`entry`
+- 检查`entry`中的key与待检查的key是否符合“引用相同”规则
+- 检查`entry`中的key与待检查的key是否符合“值相同”规则
+- 在遍历过程中，如果发现Dummy态`entry`，且`freeslot`未设置，则设置`freeslot`
+
+因此，搜索操作在成功时：
+
+- 返回相应的处于Active态的`entry`
+
+在搜索失败时，返回两种不同的结果：
+
+- 处于Unused态的`entry`
+- 处于Dummy态的`entry`
+
+##### 3. 插入与删除
+
+插入操作：
+
+- 搜索成功，返回处于Active态的`entry`，直接替换me_value
+- 搜索失败，返回Unused或者Dummy态的`entry`，完整的设置me_value/me_hash/me_key
+
+删除操作：
+
+先计算hash值，然后搜索相应的`entry`，最后删除`entry`中维护的元素，并将`entry`从Active态变换为Dummy态，同时还将调整`PyDictObject`对象维护table使用情况的变量。
+
+#### PyDictObject对象缓冲池
+
+`PyDictObject`对象中使用的缓冲池与`PyListObject`对象中使用的缓冲池机制是一样的。
+
+开始，缓冲池里面什么都没有，直到第一个`PyDictObject`对象被销毁时的，这个缓冲池才开始接纳被缓冲的`PyDictObject`对象。
+
+和`PyListObject`对象一样，缓冲池中只保留了`PyDictObject`对象。如果`PyDictObject`对象中`ma_table`维护的是从系统堆申请的内存空间，那么Python将释放这块内存空间，归还给系统；如果被销毁的`PyDictObject`对象中的table实际上并没有从系统申请，而是指向`PyDictObject`固有的`ma_smalltable`，那么只需要调整`ma_smalltable`中的对象引用计数即可。
 
 ### 七. 最简单的Python模拟
 
