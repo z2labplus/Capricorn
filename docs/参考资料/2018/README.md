@@ -6,13 +6,13 @@
 - Python源码剖析
 - Python高手之路
 - Python高级编程
-- Python极客项目编程
 - Python3 Cookbook
 - 深入 Python 3
 
 ##### GoLang
 - Go语言实战
 - Go语言实战笔记
+
 - Go语言标准库
 - Go命令教程
 - Go实战开发
