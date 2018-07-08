@@ -3,23 +3,21 @@
 ### 专业参考
 #### 语言
 ##### Python
-- Python源码剖析
+- Python源码剖析 +
 - Python高手之路
 - Python高级编程
 - Python3 Cookbook
 - 深入 Python 3
 
 ##### GoLang
-- Go语言实战
-- Go语言实战笔记
-
+- Go语言实战 +
 - Go语言标准库
-- Go命令教程
-- Go实战开发
+- Go语言程序设计
+- Go并发编程实战
 - Go语言博客实践
 
 #### 通信协议
-- HTTP权威指南
+- HTTP权威指南 +
 
 #### 存储
 - MySQL核心技术手册
@@ -31,12 +29,11 @@
 - MYSQL内核_InnoDB存储引擎
 - MySQL技术内幕
 - 数据库索引设计与优化
-- PostgreSQL 9.6.0 中文文档
 
 #### 缓存
 - Redis 命令参考
-- Redis实战
-- Redis 设计与实现
+- Redis实战 +
+- Redis 设计与实现 +
 - 带有详细注释的 Redis 3.0 代码
 
 #### 安全加密
@@ -131,7 +128,7 @@
 - 机器学习及其应用
 - Managing Gigabytes
 - Modern Information Retrieval
-- 推荐系统实践
+- 推荐系统实践 +
 - 机器学习 周志华
 
 #### 进阶
