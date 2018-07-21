@@ -3,33 +3,32 @@
 ### 专业参考
 #### 语言
 ##### Python
-- Python源码剖析
+- Python源码剖析 +
 - Python高级编程
-- Python极客项目编程
 - Python3 Cookbook
-- [Python3.5.2 官方文档](https://yiyibooks.cn/xx/python_352/tutorial/index.html)
+- [Python3.7.0 官方文档](https://docs.python.org/3/)
 - [Python 魔术方法指南](http://pycoders-weekly-chinese.readthedocs.io/en/latest/issue6/a-guide-to-pythons-magic-methods.html)
 
 ##### GoLang
-- Go语言实战
+- Go语言实战 + 
 - [Go语言博客实践](https://github.com/achun/Go-Blog-In-Action)
 - [Go语言标准库](https://studygolang.com/pkgdoc)
 - [深入解析Go](https://tiancaiamao.gitbooks.io/go-internals/content/zh/index.html)
 
 #### 通信协议
-- HTTP权威指南
+- HTTP权威指南 + 
 
 #### 存储
-- 深入浅出MySQL数据库开发优化与管理维护
 - 高性能MySQL
-- 高可用MySQL_构建健壮的数据中心
 - 数据库索引设计与优化
+- 深入浅出MySQL数据库开发优化与管理维护
+- 高可用MySQL_构建健壮的数据中心
 
 #### 缓存
-- Redis 命令参考
-- Redis实战
-- Redis 设计与实现
-- [如何阅读Redis源码](https://github.com/huangz1990/blog/blob/master/diary%2F2014%2Fhow-to-read-redis-source-code.rst)
+- Redis 命令参考 +
+- Redis实战 +
+- Redis 设计与实现 +
+- [如何阅读Redis源码](https://github.com/huangz1990/blog/blob/master/diary%2F2014%2Fhow-to-read-redis-source-code.rst) +
 - [带有详细注释的 Redis 3.0 代码](https://github.com/huangz1990/redis-3.0-annotated)
 
 #### 安全加密
@@ -56,10 +55,10 @@
 - [OpenResty 最佳实践](https://www.gitbook.com/book/moonbingbing/openresty-best-practices/details)
 
 #### 分布式系统
-- 大型网站技术架构
-- ZooKeeper:分布式过程协同技术详解
 - 分布式服务框架：原理与实践
 - 分布式系统概念与设计
+- 大型网站技术架构
+- ZooKeeper:分布式过程协同技术详解
 
 #### 监控管理
 - [Elasticsearch 权威指南（中文版）](https://es.xiaoleilu.com/)
@@ -151,9 +150,9 @@
 - 私人生活的变革
 
 ### 商业经营
+- 跃迁 +
+- 深度工作 +
 - 经济学通识课
-- 跃迁
-- 深度工作
 - 通往财务自由之路
 
 ### 哲学思考
