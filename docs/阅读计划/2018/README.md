@@ -11,7 +11,8 @@
 
 ##### GoLang
 - Go语言实战 + 
-- [Go语言博客实践](https://github.com/achun/Go-Blog-In-Action)
+- Go高级编程
+- Go并发编程实战 第2版
 - [Go语言标准库](https://studygolang.com/pkgdoc)
 - [深入解析Go](https://tiancaiamao.gitbooks.io/go-internals/content/zh/index.html)
 
